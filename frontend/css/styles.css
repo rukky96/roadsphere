@@ -182,6 +182,7 @@ nav .login {
     background-color: #D3D3D3
 }
 
+
 @media only screen and (max-width: 1020px) {
 
     #menu-bar {
@@ -220,7 +221,7 @@ nav .login {
     }
 
     #logo {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     header {
@@ -243,6 +244,19 @@ nav .login {
     #image-box {
         display: none;
     }
+
+    #menu-bar img {
+        height: 24px;
+        width: 24px;
+    }
+
+    #content-box p {
+        font-size: 30px;
+        margin: 0px;
+        padding: 0px;
+    
+    }
+    
 
     #content-image-box {
         display: block;
