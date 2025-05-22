@@ -27,9 +27,12 @@ body {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     padding: 0px;
     margin: 0px;
     min-height: 100%;
+    background-color: #0A0A0A;
     width: 100%;
     box-sizing: border-box;
 }
@@ -123,12 +126,22 @@ nav .login {
     flex-direction: row;
     min-height: calc(100vh - 120px);
     width: 100%;
+    color: #D3D3D3;
     background-color: #0A0A0A;
     padding-right: 40px;
     padding-left: 40px;
     padding-bottom: 30px;
     box-sizing: border-box;
     align-items: center;
+}
+
+#explore-intro, #about-intro, #contact-intro, #faq-intro, #rentals-intro {
+    display: flex;
+    color: #D3D3D3;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    width: 100%;
 }
 
 #content-box {
