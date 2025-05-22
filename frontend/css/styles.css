@@ -1,0 +1,251 @@
+
+html {
+    width: 100%;
+}
+*, *::before, *::after {
+    box-sizing: inherit; 
+  }
+@font-face {
+    font-family: 'Rowdies';
+    src: url('../fonts/Rowdies-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  
+body {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #D3D3D3;
+    font-family: 'Rowdies';
+    
+}
+
+main {
+    min-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+header {
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    background-color: black;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: 2px solid #343434; 
+    box-sizing: border-box;
+
+}
+
+
+header a {
+    text-decoration: none;
+    color: #D3D3D3;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+nav a {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+.sphere {
+    color: #7ED87E;
+}
+
+#menu-bar {     
+    display: none;    
+    align-self: center;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#login-menu-box {
+    display: flex;
+}
+
+#logo {
+    color: #D3D3D3;
+    font-weight: 900;
+    font-size: 45px;
+    padding-top: 0;
+    margin: 0;
+   
+    line-height: 0.2;
+}
+
+nav .login {
+    display: none;
+    color: black;
+    background-color: #7ED87E;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    font-weight: 900;
+}
+
+#login-menu-box .login {
+    display: block;
+    color: black;
+    background-color: #7ED87E;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    font-weight: 900;
+}
+
+#intro {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - 120px);
+    width: 100%;
+    background-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+#content-box {
+    padding: 30px;
+    min-height: 100%;
+    width: 50%;
+    color: #D3D3D3;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    align-items: start;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+
+#content-box p {
+    font-size: 40px;
+    margin: 0px;
+
+}
+
+#content-image-box {
+    display: none;
+}
+
+#premier {
+    color: #7ED87E
+}
+
+#quality {
+    font-weight: 900;
+}
+
+#image-box {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+#image-box img, #content-image-box img{
+    width: 100%;
+    height: auto;
+}
+
+
+.active {
+    color: black;
+    background-color: #D3D3D3
+}
+
+@media only screen and (max-width: 1020px) {
+
+    #menu-bar {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 10px;
+        min-height: 100vh;
+        width: 70vw;
+        background-color: black;
+        position: absolute;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        z-index: 10000;
+    }
+
+    nav a {
+        margin-bottom: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+       
+    }
+
+    nav .login {
+        display: block;
+        margin-top: 50px;
+    }
+
+    #login-menu-box .login {
+        display: none;
+    }
+
+    #logo {
+        font-size: 40px;
+    }
+
+    header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #intro {
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-direction: column;
+    }
+
+    #content-box {
+        width: 100%;
+
+    }
+
+    #image-box {
+        display: none;
+    }
+
+    #content-image-box {
+        display: block;
+        width: 100%;
+    }
+}
