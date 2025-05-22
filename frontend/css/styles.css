@@ -27,6 +27,8 @@ body {
 }
 
 main {
+    padding: 0px;
+    margin: 0px;
     min-height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -116,20 +118,19 @@ nav .login {
 }
 
 #intro {
-    padding-top: 40px;
+    padding-top: 30px;
     display: flex;
     flex-direction: row;
     min-height: calc(100vh - 120px);
     width: 100%;
     background-color: black;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
     box-sizing: border-box;
     align-items: center;
 }
 
 #content-box {
-    padding: 30px;
     min-height: 100%;
     width: 50%;
     color: #D3D3D3;
