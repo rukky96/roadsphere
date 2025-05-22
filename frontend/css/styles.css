@@ -124,8 +124,9 @@ nav .login {
     min-height: calc(100vh - 120px);
     width: 100%;
     background-color: black;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 30px;
     box-sizing: border-box;
     align-items: center;
 }
@@ -252,12 +253,15 @@ nav .login {
     }
 
     #content-box p {
-        font-size: 30px;
+        font-size: 25px;
         margin: 0px;
         padding: 0px;
     
     }
     
+    #sell-explore-box {
+        margin-top: 40px;
+    }
 
     #content-image-box {
         display: block;
