@@ -1,0 +1,241 @@
+html {
+    width: 100%;
+}
+*, *::before, *::after {
+    box-sizing: inherit; 
+  }
+@font-face {
+    font-family: 'Rowdies';
+    src: url('../fonts/Rowdies-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #D3D3D3;
+    font-family: 'Rowdies';
+    
+}
+
+  #logo {
+    color: #D3D3D3;
+    font-weight: 900;
+    font-size: 45px;
+    padding-top: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+#premier {
+    color: #7ED87E
+}
+
+.sphere {
+    color: #7ED87E;
+}
+
+#quality {
+    font-weight: 900;
+}
+
+#auth-main {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    height: 85vh;
+    align-self: center;
+    justify-content: center;
+    border-radius: 10px;
+    
+}
+
+#auth-main section {
+    height: 100%;
+    width: 50%;
+    
+}
+
+#intro-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#intro-box img {
+    width: 65%;
+    height: auto;
+}
+
+#intro-box #logo {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-decoration: none;
+    font-size: 50px;
+}
+
+#intro-box p {
+    color: #D3D3D3;
+    font-size: 20px;
+    text-align: center;
+}
+
+#form-box {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    background-color: #343434;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+#form-box h1 {
+    padding: 0px;
+    margin: 0px;
+    color: #7ED87E;
+    font-size: 30px;
+    line-height: 0;
+}
+
+
+#form-box form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group{
+    display:flex;
+    align-items:center;
+    border-radius:5px;
+    padding: 0px;
+    background:#fff;
+    margin-bottom: 10px;
+}
+
+.input-group:focus-within{
+    border-color:#7ED87E;
+}
+
+.prefix{
+    height: 100%;
+    width: 120px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-content: center;
+    background-color: #7ED87E;
+    color:#000000;
+    pointer-events:none;
+    user-select:none;
+}
+
+.form-input{
+    flex:1;
+    border:0;
+    outline:none;
+    padding-left:10px;
+    background:transparent;
+    height:40px;
+    font:16px;
+}
+
+.instruction {
+    padding: 0px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: #D3D3D3;
+    text-align: center;
+}
+
+.auth-question {
+    color: #7ED87E;
+    
+}
+
+.auth-buttons {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    background-color: #7ED87E;
+    border: none;
+    height: 40px;
+    font: 16px Rowdies;
+    color: #ffffff;
+    font-weight: 900;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+
+    body {
+        display: block;
+    }
+
+    #auth-main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-y: auto;
+        border-radius: 0px;
+    }
+
+    #auth-main section {
+        width: 100%;
+
+        
+    }
+
+    #form-box {
+        min-height: fit-content;
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow-y: none;
+        border-radius: 0px;
+        align-content: start;
+        justify-content: center;
+        justify-items: flex-start;
+        
+    }
+
+    #intro-box {
+        align-content: center;
+        max-height: 250px;
+        justify-content: center;
+        border-radius: 0px;
+    }
+
+    #intro-box img {
+        width: auto;
+        height: 100px;
+    }
+
+    #intro-box #logo {
+        font-size: 35px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #intro-box p {
+        display: none;
+    }
+}

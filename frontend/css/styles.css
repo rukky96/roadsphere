@@ -196,8 +196,10 @@ nav .login {
     background-color: #D3D3D3
 }
 
+/* AUTH PAGES CSS */
 
-@media only screen and (max-width: 1020px) {
+
+@media only screen and (max-width: 992px) {
 
     #menu-bar {
         display: block;
@@ -279,4 +281,8 @@ nav .login {
         display: block;
         width: 100%;
     }
+
+    /* AUTH PAGES MEDIA QUERY */
+    
+    
 }
