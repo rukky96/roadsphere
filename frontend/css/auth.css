@@ -35,11 +35,11 @@ html {
 }
 
 #premier {
-    color: #7ED87E
+    color: #58A458
 }
 
 .sphere {
-    color: #7ED87E;
+    color: #58A458;
 }
 
 #quality {
@@ -49,7 +49,8 @@ html {
 #auth-main {
     display: flex;
     flex-direction: row;
-    width: 70vw;
+    background-color: #343434;
+    width: 80vw;
     height: 85vh;
     align-self: center;
     justify-content: center;
@@ -111,9 +112,14 @@ html {
 #form-box h1 {
     padding: 0px;
     margin: 0px;
-    color: #7ED87E;
+    color: #58A458;
     font-size: 25px;
     line-height: 0;
+}
+
+#auth-forgot-question {
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -133,7 +139,7 @@ html {
 }
 
 .input-group:focus-within{
-    border-color:#7ED87E;
+    border-color:#58A458;
 }
 
 .prefix{
@@ -144,7 +150,7 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     align-content: center;
-    background-color: #7ED87E;
+    background-color: #58A458;
     color:#000000;
     pointer-events:none;
     user-select:none;
@@ -171,14 +177,14 @@ html {
 }
 
 .auth-question {
-    color: #7ED87E;
+    color: #58A458;
     
 }
 
 .auth-buttons {
     margin-top: 10px;
     margin-bottom: 0px;
-    background-color: #7ED87E;
+    background-color: #58A458;
     border: none;
     height: 40px;
     font: 15px Rowdies;
@@ -186,7 +192,38 @@ html {
     border-radius: 15px;
 }
 
-@media only screen and (max-width: 992px) {
+#otp-div {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.otp-input {
+    font-size: 15px;
+    font-family: Rowdies;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #D3D3D3;
+    margin: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+}
+
+.otp-input:focus {
+    border: none;
+    outline: none;
+    border-width: 0px;
+}
+
+@media only screen and (max-width: 768px) {
 
     body {
         display: block;
@@ -223,7 +260,11 @@ html {
         align-content: center;
         max-height: 250px;
         justify-content: center;
-        border-radius: 0px;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        box-sizing: border-box;
     }
 
     #intro-box img {

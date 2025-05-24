@@ -70,7 +70,7 @@ nav a {
 }
 
 .sphere {
-    color: #7ED87E;
+    color: #58A458;
 }
 
 #menu-bar {     
@@ -98,7 +98,7 @@ nav a {
 nav .login {
     display: none;
     color: black;
-    background-color: #7ED87E;
+    background-color: #58A458;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -110,7 +110,7 @@ nav .login {
 #login-menu-box .login {
     display: block;
     color: black;
-    background-color: #7ED87E;
+    background-color: #58A458;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -167,7 +167,7 @@ nav .login {
 }
 
 #premier {
-    color: #7ED87E
+    color: #58A458
 }
 
 #quality {

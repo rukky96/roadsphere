@@ -38,6 +38,18 @@ app.get("/explore", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/explore.html"))
 })
 
+app.get("/reset-password", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/reset_password.html"))
+})
+
+app.get("/reset-password-otp", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/reset_password_otp.html"))
+})
+
+app.get("/verify-email-otp", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/verify_email_otp.html"))
+})
+
 app.listen(port, () => {
     console.log("Server is running");
 })
