@@ -42,7 +42,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
+    height: 100px;
     background-color: black;
     padding-left: 40px;
     padding-right: 40px;
@@ -55,7 +55,7 @@ header {
 header a {
     text-decoration: none;
     color: #D3D3D3;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
 }
 
@@ -89,7 +89,7 @@ nav a {
 #logo {
     color: #D3D3D3;
     font-weight: 900;
-    font-size: 45px;
+    font-size: 30px;
     padding-top: 0;
     margin: 0;
     line-height: 0;
@@ -99,10 +99,10 @@ nav .login {
     display: none;
     color: black;
     background-color: #7ED87E;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
     font-weight: 900;
 }
@@ -111,10 +111,10 @@ nav .login {
     display: block;
     color: black;
     background-color: #7ED87E;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
     font-weight: 900;
 }
@@ -123,7 +123,7 @@ nav .login {
     padding-top: 30px;
     display: flex;
     flex-direction: row;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 100px);
     width: 100%;
     color: #D3D3D3;
     background-color: #0A0A0A;
@@ -139,13 +139,13 @@ nav .login {
     color: #D3D3D3;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 100px);
     width: 100%;
 }
 
 #content-box {
     min-height: 100%;
-    width: 50%;
+    width: 40%;
     color: #D3D3D3;
     display: flex;
     flex-direction: column;
@@ -157,7 +157,7 @@ nav .login {
 }
 
 #content-box p {
-    font-size: 40px;
+    font-size: 30px;
     margin: 0px;
 
 }
@@ -175,7 +175,7 @@ nav .login {
 }
 
 #image-box {
-    width: 50%;
+    width: 60%;
     height: 100%;
     box-sizing: border-box;
     display: flex;
@@ -238,6 +238,7 @@ nav .login {
 
     #logo {
         font-size: 30px;
+        line-height: 0;
     }
 
     header {
@@ -262,12 +263,12 @@ nav .login {
     }
 
     #menu-bar img {
-        height: 24px;
-        width: 24px;
+        height: 18px;
+        width: 18px;
     }
 
     #content-box p {
-        font-size: 25px;
+        font-size: 20px;
         margin: 0px;
         padding: 0px;
     
@@ -276,6 +277,7 @@ nav .login {
     #sell-explore-box {
         margin-top: 30px;
     }
+
 
     #content-image-box {
         display: block;
