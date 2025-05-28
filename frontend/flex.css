@@ -1,0 +1,167 @@
+html {
+    width: 100%;
+    height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; 
+  }
+
+@font-face {
+    font-family: 'Rowdies';
+    src: url('../fonts/Rowdies-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: 'Rowdies';
+    
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    color: #D3D3D3;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.main {
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    background-color: #D3D3D3;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+#logo {
+    color: #D3D3D3;
+    font-weight: 900;
+    font-size: 30px;
+    padding-top: 0;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    line-height: 0;
+}
+
+#user-icon {
+  display: flex;
+  align-items: center;       /* Vertically center */
+  justify-content: center;   /* Horizontally center */
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  border: 1px solid #D3D3D3;
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;          /* Optional: hide overflow if image is large */
+}
+
+#user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+}
+
+.sphere {
+    color: #58A458;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.3s;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+  .sidebar a:hover,
+  .sidebar a.active {
+    background-color: #58A458;
+  }
+
+.dashboard-header {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #58A458;
+    height: 80px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+#search-bar {
+    width: 50%;
+    display: flex;
+    background-color: #D3D3D3;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #search {
+    flex: 1;
+    outline: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  #search-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+
+  #search::placeholder {
+    color: #757575;
+    opacity: 1;
+  }
+
+.main-content {
+    flex: 1;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+    }
+
+    .sidebar a {
+      padding: 12px 16px;
+    }
+  }

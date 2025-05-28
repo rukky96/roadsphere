@@ -4,6 +4,7 @@ html {
 *, *::before, *::after {
     box-sizing: inherit; 
   }
+  
 @font-face {
     font-family: 'Rowdies';
     src: url('../fonts/Rowdies-Regular.ttf') format('truetype');

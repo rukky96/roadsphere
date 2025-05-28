@@ -50,6 +50,10 @@ app.get("/verify-email-otp", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/verify_email_otp.html"))
 })
 
+app.get("/dashboard", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/user_dashboard.html"))
+})
+
 app.listen(port, () => {
     console.log("Server is running");
 })

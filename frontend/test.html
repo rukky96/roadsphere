@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <a href="/dashboard" data-route="/dashboard" class="nav-link">Dashboard</a>
+<a href="/explore" data-route="/explore" class="nav-link">Explore Cars</a>
+<a href="/dashboard/rentals" data-route="/dashboard/rentals" class="nav-link">Rentals</a>
+<a href="/dashboard/sell" data-route="/dashboard/sell" class="nav-link">Sell Cars</a>
+
+            <div class="main-content">
+            <section id="dashboard-section">Dashboard content</section>
+            <section id="explore-section" style="display: none;">Explore content</section>
+            <section id="rentals-section" style="display: none;">Rentals content</section>
+            <section id="sell-section" style="display: none;">Sell cars content</section>
+  <!-- Add other sections similarly -->
+            </div>
+        </div>
+
+        <script>
+  const routes = {
+    "/dashboard": "dashboard-section",
+    "/explore": "explore-section",
+    "/dashboard/rentals": "rentals-section",
+    "/dashboard/sell": "sell-section"
+    // Add more routes as needed
+  };
+
+  function showSection(route) {
+    for (let key in routes) {
+      const section = document.getElementById(routes[key]);
+      section.style.display = key === route ? "block" : "none";
+    }
+  }
+
+  // Handle navigation click
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const path = this.getAttribute("data-route");
+      history.pushState({}, "", path);
+      showSection(path);
+    });
+  });
+
+  // Handle back/forward button
+  window.addEventListener("popstate", () => {
+    showSection(location.pathname);
+  });
+
+  // Load initial section on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const currentPath = location.pathname;
+    showSection(currentPath in routes ? currentPath : "/dashboard");
+  });
+</script>
+
+    </body>
+</html>
