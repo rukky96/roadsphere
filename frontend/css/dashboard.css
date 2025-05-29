@@ -180,7 +180,7 @@ body {
   align-content: center;
   background-color: black;
   height: 200px;
-  width: 250px;
+  width: 200px;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -193,7 +193,7 @@ body {
 .stat-desc {
   color: #D3D3D3;
   font-size: 15px;
-  margin-top: 30px
+  margin-top: 20px
 
 }
 
