@@ -105,7 +105,7 @@ body {
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    padding-left: 20px;
+    padding-left: 30px;
     padding-right: 20px;
     box-sizing: border-box;
   }
@@ -156,11 +156,56 @@ body {
 
 .main-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
     height: 100%;
-    align-content: center;
-    justify-content: center;
     padding: 30px;
     box-sizing: border-box;
+}
+
+.user-stats {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.user-stats::-webkit-scrollbar {
+  display: none;             
+}
+
+.stat-box {
+  flex: 0 0 auto;
+  align-content: center;
+  background-color: black;
+  height: 200px;
+  width: 250px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-right: 30px;
+  box-sizing: border-box;
+}
+
+
+
+.stat-desc {
+  color: #D3D3D3;
+  font-size: 15px;
+  margin-top: 30px
+
+}
+
+.stat-detail {
+  color: #58A458;
+  font-size: 30px;
+  margin: 0px;
+}
+
+.stat-box img {
+  height: 50px;
+  width: auto;
 }
 
 #user-container {
@@ -168,6 +213,16 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.user-stats.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+.user-stats {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
 
   @media (max-width: 768px) {
 

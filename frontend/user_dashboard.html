@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Home Page</title>
+    <title>Dashboard</title>
+
+    <!-- Here I added version to the css to see if it will be forced to reload because it seem the browser wasn't refreshing my css updates -->
     <link rel="stylesheet" href="/css/dashboard.css?v=1.1">
   </head>
   <body>
+
+    <!-- This is the sidebar of the dashboard. -->
     <div class="sidebar">
       <a id="logo" href="/dashboard">road<span class="sphere">sphere</span></a>
       <a href="/dashboard" class="active">Dashboard</a>
@@ -19,16 +23,22 @@
       <a href="/dashboard/settings">Account Settings</a>
       <a href="/logout">Logout</a>
     </div>
+
+    <!-- The main div holds dashboard header & the main content of each section -->
     <div class="main">
       <div class="dashboard-header">
         <div>
           <a id="menu-bar"><img src="/icons/menu.png" width="16px" height="16px"></a>
           <p id="section-name" style="margin-right: 20px; font-size: 20px; font-weight: 900; letter-spacing: 1px">Dashboard</p>
         </div>
+
+        <!-- This p tag holds the search bar which contains an input field and the search icon -->
         <p id="search-bar">
           <input type="text" id="search" placeholder="Search Cars, Brands, Models etc.">
           <button id="search-button"><img src="/icons/loupe.png"></button>
         </p>
+
+        <!-- This div contains the first name, last name, role and photo of the user. A user icon is used in place of the photo -->
         <div id="user-container">
           <p style="font-size: 12px; color: #D3D3D3; line-height: 1; text-align: right; margin-left: 5px; margin-right: 5px"><span>Kelvin</span> <span>Akproko</span><br><span style="font-size:16px; letter-spacing: 1px">User</span></p>
           <div id="user-icon">
@@ -36,8 +46,31 @@
           </div>
         </div>
       </div>
+
+      <!-- This div will hold the main content of each section of referenced in the side bar. -->
       <div class ='main-content' id="dashboard">
-        <p style="text-align: center">The dashboard section is still being worked on.</p>
+        <div class="user-stats">
+          <div class="stat-box">
+            <img src="/icons/hatchback.png">
+            <p class="stat-desc">Total Uploaded for Sale</p>
+            <p class="stat-detail">0</p>
+          </div>
+          <div class="stat-box" style="background-color:darkslategrey;" >
+            <img src="/icons/rental-car.png">
+            <p class="stat-desc">Total Uploaded for Rent</p>
+            <p class="stat-detail">0</p>
+          </div>
+          <div class="stat-box" style="background-color: darkred;" >
+            <img src="/icons/list.png">
+            <p class="stat-desc">Car Sale Orders</p>
+            <p class="stat-detail">0</p>
+          </div>
+          <div class="stat-box" style="background-color:midnightblue;" >
+            <img src="/icons/list.png">
+            <p class="stat-desc">Car Rent Orders</p>
+            <p class="stat-detail">0</p>
+          </div>
+        </div>
       </div>
     </div>
     <script src="/javascript/dashboard.js"></script>
