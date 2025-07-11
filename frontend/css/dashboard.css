@@ -228,6 +228,7 @@ body {
 
     .dashboard-header {
       border-radius: 0px;
+      padding: 20px;
     }
     body {
 
@@ -276,6 +277,7 @@ body {
 #search-bar {
   width: 70%;
 }
+
 
 
 

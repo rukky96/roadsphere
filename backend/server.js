@@ -1,10 +1,20 @@
 const express = require("express");
 const path = require("path");
-const dotenv = require("dotenv");
+const authRoutes = require("./auth_routes");
+const adminRoutes = require("./admin_routes");
+const apiRoutes = require("./api_routes")
 require('dotenv').config();
+
+
 const app = express(); 
 const port = process.env.PORT || 3333;
 app.use(express.static(path.join(__dirname, "../frontend")))
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
+app.use("/api", apiRoutes);
+app.use("/api/admin", adminRoutes);
+
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/home.html"))
