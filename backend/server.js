@@ -3,24 +3,53 @@ const path = require("path");
 const authRoutes = require("./auth_routes");
 const adminRoutes = require("./admin_routes");
 const apiRoutes = require("./api_routes")
-const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
 require('dotenv').config();
 
 
 const app = express(); 
 const port = process.env.PORT || 3333;
-
+app.use(express.static(path.join(__dirname, "../frontend")))
 app.use(express.json());
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", apiRoutes);
 app.use("/api/admin", adminRoutes);
 
 
-app.use(express.static(path.join(__dirname, "../frontend")))
+
+app.get('/api-docs', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Swagger UI</title>
+      <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+    </head>
+    <body>
+      <div id="swagger-ui"></div>
+      <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+      <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+      <script>
+        window.onload = () => {
+          SwaggerUIBundle({
+            url: '/swagger.json',
+            dom_id: '#swagger-ui',
+            presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+            layout: 'StandaloneLayout'
+          })
+        }
+      </script>
+    </body>
+    </html>
+  `);
+});
+
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/home.html"))
