@@ -79,9 +79,47 @@ const path = require("path");
  *               type: array
  *               items:
  *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                     example: 1
+ *                   title:
+ *                     type: string
+ *                     example: "Toyota Corolla 2021"
+ *                   brand:
+ *                     type: string
+ *                     example: "Toyota"
+ *                   model:
+ *                     type: string
+ *                     example: "Corolla"
+ *                   year:
+ *                     type: integer
+ *                     example: 2021
+ *                   color:
+ *                     type: string
+ *                     example: "Red"
+ *                   transmission:
+ *                     type: string
+ *                     example: "Automatic"
+ *                   price_per_day:
+ *                     type: number
+ *                     format: float
+ *                     example: 15000.00
+ *                   image_url:
+ *                     type: string
+ *                     example: "https://example.com/car.jpg"
  *       500:
  *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Internal server error
  */
+
 api.get("/rentals", async (req, res) => {
   const {
     category = '',
@@ -169,9 +207,47 @@ api.get("/rentals", async (req, res) => {
  *           application/json:
  *             schema:
  *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 1
+ *                 title:
+ *                   type: string
+ *                   example: "Toyota Corolla 2021"
+ *                 brand:
+ *                   type: string
+ *                   example: "Toyota"
+ *                 model:
+ *                   type: string
+ *                   example: "Corolla"
+ *                 year:
+ *                   type: integer
+ *                   example: 2021
+ *                 color:
+ *                   type: string
+ *                   example: "Red"
+ *                 transmission:
+ *                   type: string
+ *                   example: "Automatic"
+ *                 price_per_day:
+ *                   type: number
+ *                   format: float
+ *                   example: 15000.00
+ *                 image_url:
+ *                   type: string
+ *                   example: "https://example.com/car.jpg"
  *       500:
  *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Internal server error
  */
+
 api.get("/rentals/:id", async (req, res) => {
   const id = req.params.id;
   try {
