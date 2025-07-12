@@ -10,15 +10,17 @@ require('dotenv').config();
 
 const app = express(); 
 const port = process.env.PORT || 3333;
-app.use(express.static(path.join(__dirname, "../frontend")))
+
 app.use(express.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", apiRoutes);
 app.use("/api/admin", adminRoutes);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
+app.use(express.static(path.join(__dirname, "../frontend")))
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/home.html"))
 })
