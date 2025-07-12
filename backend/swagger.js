@@ -10,7 +10,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: process.env.SERVER_URL || 'roadsphere.vercel.app', // change to your live server URL when deployed
+      url: 'https://roadsphere.vercel.app'
     },
   ],
 };
