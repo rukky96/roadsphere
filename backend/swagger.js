@@ -1,4 +1,5 @@
 const swaggerJsDoc = require('swagger-jsdoc');
+const path = require("path");
 require('dotenv').config();
 
 const swaggerDefinition = {
@@ -17,8 +18,13 @@ const swaggerDefinition = {
 
 const options = {
   swaggerDefinition,
-  apis: ['./auth_routes.js', './api_routes.js', './admin_routes.js'] // path to your route files with comments
+  apis: [
+    path.join(__dirname, "auth_routes.js"),
+    path.join(__dirname, "api_routes.js"),
+    path.join(__dirname, "admin_routes.js"),
+  ],
 };
+
 
 const swaggerSpec = swaggerJsDoc(options);
 
