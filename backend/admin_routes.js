@@ -12,7 +12,7 @@ const { pool } = require("./database")
 
 /**
  * @swagger
- * /admin/users:
+ * /api/admin/users:
  *   get:
  *     summary: Get all users
  *     tags: [Admin]
@@ -68,7 +68,7 @@ admin.get("/users", verifyAdmin, async (req, res) => {
 
 /**
  * @swagger
- * /admin/users/{id}:
+ * /api/admin/users/{id}:
  *   delete:
  *     summary: Delete a user by ID
  *     tags: [Admin]
