@@ -4,6 +4,10 @@ const jwt = require("jsonwebtoken");
 
 const verifyToken = async (req, res, next) => {
     const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        res.status(401).json({message: "Access denied. Please login"});
+        return;
+    }
     const token = authHeader.split(' ')[1];
 
     if (!token) {
@@ -34,6 +38,10 @@ const verifyToken = async (req, res, next) => {
 
 const verifyAdmin = async (req, res, next) => {
     const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        res.status(401).json({message: "Access denied. Please login"});
+        return;
+    }
     const token = authHeader.split(' ')[1];
 
     if (!token) {
