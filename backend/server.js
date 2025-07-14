@@ -10,13 +10,16 @@ require('dotenv').config();
 
 const app = express(); 
 const port = process.env.PORT || 3333;
+
+app.use(cors());
 app.use(express.static(path.join(__dirname, "../frontend")))
 app.use(express.json());
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api", apiRoutes);
 app.use("/api/admin", adminRoutes);
-app.use(cors());
+
 
 
 app.get('/api-docs', (req, res) => {
