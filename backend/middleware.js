@@ -16,7 +16,7 @@ const verifyToken = async (req, res, next) => {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
             const updateLastSeen = await pool.query(
-                `UPDATE proverbs_users SET last_active = NOW() WHERE id=$1 RETURNING *;`, 
+                `UPDATE roadsphere_users SET last_active = NOW() WHERE id=$1 RETURNING *;`, 
                 [decoded.id]);
             if (updateLastSeen.rowCount > 0) {
                 req.user = decoded;
@@ -30,6 +30,7 @@ const verifyToken = async (req, res, next) => {
                 res.status(401).json({message: "You provided an invalid token"})
             } else {
                 res.status(401).json({message: "Authentication failed. Please login"})
+                console.log(error)
             }
         }
 
@@ -52,7 +53,7 @@ const verifyAdmin = async (req, res, next) => {
 
             if (decoded.role === "admin" || decoded.role === "superadmin") {
                 const updateLastSeen = await pool.query(
-                `UPDATE proverbs_users SET last_active = NOW() WHERE id=$1 RETURNING *;`, 
+                `UPDATE roadsphere_users SET last_active = NOW() WHERE id=$1 RETURNING *;`, 
                 [decoded.id]);
                 if (updateLastSeen.rowCount > 0) {
                     req.user = decoded;

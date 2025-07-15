@@ -3,6 +3,7 @@ const path = require("path");
 const authRoutes = require("./auth_routes");
 const adminRoutes = require("./admin_routes");
 const apiRoutes = require("./api_routes")
+const userPofileRoutes = require("./user_profile_routes");
 const swaggerSpec = require('./swagger');
 const cors = require("cors");
 require('dotenv').config();
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api", apiRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/", userPofileRoutes);
 
 
 

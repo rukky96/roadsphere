@@ -265,4 +265,174 @@ api.get("/rentals/:id", async (req, res) => {
   }
 });
 
+
+/**
+ * @swagger
+ * /api/rent:
+ *   post:
+ *     summary: Book a rental vehicle
+ *     tags: [Rentals]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - vehicle_id
+ *               - start_date
+ *               - end_date
+ *               - no_of_days
+ *               - city_of_usage
+ *               - state_of_usage
+ *               - local_government_of_usage
+ *               - amount
+ *               - precise_address
+ *             properties:
+ *               vehicle_id:
+ *                 type: integer
+ *                 example: 2
+ *               start_date:
+ *                 type: string
+ *                 format: date
+ *                 example: 2025-08-01
+ *               end_date:
+ *                 type: string
+ *                 format: date
+ *                 example: 2025-08-03
+ *               no_of_days:
+ *                 type: integer
+ *                 example: 3
+ *               city_of_usage:
+ *                 type: string
+ *                 example: Warri
+ *               state_of_usage:
+ *                 type: string
+ *                 example: Delta
+ *               local_government_of_usage:
+ *                 type: string
+ *                 example: Uvwie
+ *               amount:
+ *                 type: number
+ *                 format: float
+ *                 example: 45000.00
+ *               precise_address:
+ *                 type: string
+ *                 example: "No. 15 Okumagba Layout, Warri"
+ *     responses:
+ *       201:
+ *         description: Vehicle successfully booked
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Vehicle successfully booked
+ *                 booking:
+ *                   type: object
+ *                   description: The newly created booking
+ *       400:
+ *         description: Bad request (missing fields or unavailable vehicle)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Some fields are missing
+ *       403:
+ *         description: Forbidden – profile not complete (KYC level too low)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Your profile is incomplete. Please update to continue.
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Internal Server Error
+ */
+
+api.post('/rent', verifyToken, async (req, res) => {
+    const {
+        booker = req.user.email,
+        vehicle_id,
+        start_date,
+        end_date,
+        no_of_days,
+        city_of_usage,
+        state_of_usage,
+        local_government_of_usage,
+        amount,
+        precise_address,
+    } = req.body
+
+    if(!booker || !vehicle_id || !start_date || !end_date || !no_of_days || !city_of_usage || !state_of_usage || !local_government_of_usage || !amount || !precise_address){
+        res.status(400).json({ message: "Some fields are missing"});
+        return;
+    }
+
+    if(req.user.kyc_level < 3) {
+        res.status(403).json({
+            message: "Your profile is incomplete. Please update to continue."
+        })
+        return;
+    }
+
+    try {
+        const checkVehicleId = `SELECT * FROM roadsphere_vehicles 
+        WHERE id = $1 AND
+            listing_type = 'rent' AND
+            is_available = TRUE
+        `
+        const checkVehicleIdResult = await pool.query(checkVehicleId, [vehicle_id])
+        if (checkVehicleIdResult.rowCount > 0) {
+           const vehicle_detail = checkVehicleIdResult.rows[0];
+           const vendor = vehicle_detail.vendor;
+           try {
+                const values = [booker, vehicle_id, start_date, end_date, no_of_days, city_of_usage, state_of_usage, local_government_of_usage, amount, precise_address]
+                const bookQuery = `
+                    INSERT INTO roadsphere_bookings(
+                        booker, vehicle_id, start_date, end_date, no_of_days, city_of_usage, state_of_usage, local_government_of_usage, amount, precise_address
+                        )
+                        VALUES(
+                            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10
+                        )
+                    RETURNING *;
+                `
+                const bookQueryResult = await pool.query(bookQuery, values)
+                if(bookQueryResult.rowCount > 0){
+                    const booking = bookQueryResult.rows[0];
+                    res.status(201).json({
+                        message: "Vehicle successful booked",
+                        booking: booking
+                    })
+                }
+            } catch(error) {
+                console.log(error);
+                res.status(500).json({message: "Internal Server Error"});
+            }
+        } else {
+            res.status(400).json({message : "Vehicle not available"})
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(0).json({message: "Internal Server Error"})
+    }
+
+})
 module.exports = api;
