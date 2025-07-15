@@ -339,6 +339,8 @@ auth.post('/login', async (req, res) => {
                 first_name: user.first_name, 
                 last_name:user.last_name,
                 role: user.role,
+                kyc_level: user.kyc_level,
+                phone_number: user.phone_number,    
                 is_verified: user.is_verified,        
         }
                     const token = jwt.sign(
